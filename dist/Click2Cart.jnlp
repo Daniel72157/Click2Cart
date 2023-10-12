@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Click2Cart.jar" size="7820" download="eager" />
+    <jar href="Click2Cart.jar" size="8695" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="main.main"  name="Click2Cart" />
   <update check="always"/>
