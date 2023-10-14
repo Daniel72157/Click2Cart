@@ -54,6 +54,7 @@ public class MainViewController implements Initializable {
             signInForm = LoadForm("/main/signIn/SignInForm.fxml");
             signUpForm = LoadForm("/main/signUp/SignUpForm.fxml");
             containerForm.getChildren().addAll(signInForm,signUpForm);
+            
             signInForm.setVisible(true);
             signUpForm.setVisible(false);
             

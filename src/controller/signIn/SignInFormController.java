@@ -4,16 +4,31 @@
  */
 package controller.signIn;
 
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
+import javax.swing.JOptionPane;
+import model.UsersDAO;
 
 /**
  * FXML Controller class
@@ -21,6 +36,8 @@ import javafx.scene.input.KeyEvent;
  * @author danie
  */
 public class SignInFormController implements Initializable {
+    
+    private UsersDAO model = new UsersDAO();
     
     @FXML
     private TextField txtUserSignIn, txtPasswordSignInMask;
@@ -44,7 +61,32 @@ public class SignInFormController implements Initializable {
         }
         
     }
+    @FXML
+    private void actionEvent(ActionEvent event){
+        Object evt = event.getSource();
+        
+        if(evt.equals(btnSignIn)){
+            if(!txtUserSignIn.getText().isEmpty() && !txtPasswordSignIn.getText().isEmpty()){
+                String user = txtUserSignIn.getText();
+                String pass = txtPasswordSignIn.getText();
+                
+                int state = model.getDatos(user, pass);
+                
+                if(state != -1){
+                    if(state == 1){
+                        JOptionPane.showMessageDialog(null, "Datos correctos, puede ingresar a la tienda");
+                        loadStage("/main/Principal.fxml", event);
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Error al iniciar sesion, datos de acceso incorrectos");
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Error al iniciar sesion, ingrese los datos del usuario");
+            }
+        }
+    }
     
+
     /**
      * Initializes the controller class.
      */
@@ -65,6 +107,33 @@ public class SignInFormController implements Initializable {
         text.visibleProperty().bind(check.selectedProperty());
         
         text.textProperty().bindBidirectional(pass.textProperty());
+        
+    }
+    private void loadStage(String url, Event event){
+        
+        try {
+            Object eventSource = event.getSource();
+            Node sourceAsNode = (Node) eventSource;
+            Scene oldScene = sourceAsNode.getScene();
+            Window window = oldScene.getWindow();
+            Stage stage = (Stage) window;
+            stage.hide();
+            
+            Parent root = FXMLLoader.load(getClass().getResource(url));
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+            newStage.show();
+            
+            newStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent event) {
+                    Platform.exit();
+                }
+            });
+        }catch ( IOException ex){
+            Logger.getLogger(SignInFormController.class.getName()).log(Level.SEVERE,null, ex);
+        }
         
     }
     

@@ -6,6 +6,7 @@ package controller.signUp;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,6 +14,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import model.Users;
+import model.UsersDAO;
 
 /**
  * FXML Controller class
@@ -20,6 +23,8 @@ import javafx.scene.input.KeyEvent;
  * @author danie
  */
 public class SignUpFormController implements Initializable {
+    
+    private UsersDAO model = new UsersDAO();
     
     @FXML
     private TextField txtUserSignUp, txtPasswordSignUpMask;
@@ -40,6 +45,17 @@ public class SignUpFormController implements Initializable {
         
         if(c.equalsIgnoreCase(" ")){
             e.consume();
+        }     
+    }
+    public void actionEvent(ActionEvent e){
+        
+        Object evt = e.getSource();
+        
+        if(evt.equals(btnSignUp)){
+            String user = txtUserSignUp.getText();
+            String pass = txtPasswordSignUp.getText();
+            model.setDatos(user, pass);
+            
         }
         
     }

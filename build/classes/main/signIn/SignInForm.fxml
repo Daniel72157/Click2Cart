@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <VBox fx:id="panelFormSignIn" alignment="CENTER" maxWidth="600.0" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.signIn.SignInFormController">
    <children>
       <Label text="Iniciar Sesion">
@@ -24,12 +25,12 @@
          </VBox.margin>
          <children>
             <Label text="Usuario">
-               <font>
-                  <Font size="20.0" />
-               </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Label>
             <TextField fx:id="txtUserSignIn" onKeyTyped="#eventKey" prefHeight="37.0" promptText="Ej. Jairo">
                <font>
@@ -37,14 +38,14 @@
                </font>
             </TextField>
             <Label text="Contraseña">
-               <font>
-                  <Font size="20.0" />
-               </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
             </Label>
-            <StackPane prefHeight="37.0" prefWidth="300.0">
+            <StackPane prefHeight="37.0" prefWidth="200.0">
                <children>
                   <PasswordField fx:id="txtPasswordSignIn" onKeyTyped="#eventKey" prefHeight="37.0" promptText="Ej. 1234">
                      <font>
@@ -59,16 +60,16 @@
                </children>
             </StackPane>
             <CheckBox fx:id="checkViewPassSignIn" mnemonicParsing="false" text="Ver Contraseña">
-               <font>
-                  <Font size="14.0" />
-               </font>
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </CheckBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button fx:id="btnSignIn" mnemonicParsing="false" opacity="0.9" prefWidth="65.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Ingresar" textFill="WHITE">
+                  <Button fx:id="btnSignIn" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="65.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Ingresar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
