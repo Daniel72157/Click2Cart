@@ -14,6 +14,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javax.swing.JOptionPane;
 import model.Users;
 import model.UsersDAO;
 
@@ -54,7 +55,18 @@ public class SignUpFormController implements Initializable {
         if(evt.equals(btnSignUp)){
             String user = txtUserSignUp.getText();
             String pass = txtPasswordSignUp.getText();
-            model.setDatos(user, pass);
+            
+            int state = model.getUser(user);
+            
+            if (state != -1){
+                if (state == 1){
+                    JOptionPane.showMessageDialog(null, "Este nombre de usuario ya se encuentra registrado\n"
+                                                        +"Ingrese uno diferente");
+                }else{
+                    model.setDatos(user, pass);
+                }
+            }
+            
             
         }
         

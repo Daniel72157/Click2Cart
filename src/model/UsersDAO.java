@@ -23,6 +23,46 @@ public class UsersDAO {
     
     public UsersDAO () { cab = null; }
     
+    public int getUser(String user){
+        
+        Connection connection = null;
+        PreparedStatement pst;
+        ResultSet rs;
+        int state = -1;
+        
+        try{
+            connection = ConnectionPoolMySQL.getInstance().getConnection();
+            
+            if(connection != null){
+                
+                String sql = "SELECT * FROM accounts WHERE BINARY user=?";
+                
+                pst = connection.prepareStatement(sql);
+                pst.setString(1, user);
+                
+                rs = pst.executeQuery();
+                
+                if(rs.next()){
+                    state = 1;
+                }else{
+                    state = 0;
+                }
+            }
+        }catch(HeadlessException | SQLException ex){
+            JOptionPane.showMessageDialog(null, "Hubo un error de ejecucion, posibles errores\n"
+                                                + ex.getMessage());
+        }finally{
+            try{
+                if (connection != null){
+                    ConnectionPoolMySQL.getInstance().closeConnection(connection);
+                }
+            }catch (SQLException ex){
+                System.err.println(ex.getMessage());
+            }
+        }
+        return state;
+    }
+    
     public int getDatos(String user, String pass){
         
         Connection connection = null;
@@ -110,20 +150,22 @@ public class UsersDAO {
             }
         }
     }
+    
     public void setDatos(String user, String pass){
-        Users info = getCrearNodo(user, pass);
+        Users p = getCrearNodo(user, pass);
         Connection connection = null;
         PreparedStatement ps;
         try{
             connection = ConnectionPoolMySQL.getInstance().getConnection();
             if(connection != null){
-                
+                   
                 String sql = "INSERT INTO accounts (user, pass) VALUES (?,?)";
                 ps = connection.prepareStatement(sql);
-                ps.setString(1, info.user);
-                ps.setString(2, info.pass);
+                ps.setString(1, p.user);
+                ps.setString(2, p.pass);
                 ps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Se registro con exito, Inicie sesion para continuar");
+                cab = p;
                 
             }
             

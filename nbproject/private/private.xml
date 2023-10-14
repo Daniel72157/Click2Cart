@@ -4,11 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/controller/signIn/SignInFormController.java</file>
-            <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/model/ConnectionPoolMySQL.java</file>
+            <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/main/signIn/SignInForm.fxml</file>
+            <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/controller/MainViewController.java</file>
             <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/model/UsersDAO.java</file>
             <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/controller/signUp/SignUpFormController.java</file>
-            <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/main/Principal.fxml</file>
-            <file>file:/C:/Users/danie/Documents/NetBeansProjects/Click2Cart/src/model/Users.java</file>
         </group>
     </open-files>
 </project-private>
