@@ -20,7 +20,7 @@
       <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
    </rowConstraints>
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #5767FF;">
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-background-color: #5767FF;">
          <children>
             <VBox alignment="CENTER" prefHeight="90.0" prefWidth="359.0">
                <children>
@@ -58,6 +58,6 @@
             </HBox>
          </children>
       </HBox>
-      <StackPane fx:id="containerForm" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1" />
+      <StackPane fx:id="containerForm" alignment="TOP_CENTER" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1" />
    </children>
 </GridPane>

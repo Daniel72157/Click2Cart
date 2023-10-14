@@ -23,29 +23,24 @@ public class UsersDAO {
     
     public UsersDAO () { cab = null; }
     
-    public int getUser(String user){
+    public void getUser(){
         
         Connection connection = null;
         PreparedStatement pst;
         ResultSet rs;
-        int state = -1;
+        Users info;
         
         try{
             connection = ConnectionPoolMySQL.getInstance().getConnection();
             
             if(connection != null){
                 
-                String sql = "SELECT * FROM accounts WHERE BINARY user=?";
+                Statement datos = connection.createStatement();
+                rs = datos.executeQuery("SELECT * FROM accounts");
                 
-                pst = connection.prepareStatement(sql);
-                pst.setString(1, user);
-                
-                rs = pst.executeQuery();
-                
-                if(rs.next()){
-                    state = 1;
-                }else{
-                    state = 0;
+                while(rs.next()){
+                    info = new Users(rs.getString(1), rs.getString(2));
+                    cab = info;
                 }
             }
         }catch(HeadlessException | SQLException ex){
@@ -60,7 +55,6 @@ public class UsersDAO {
                 System.err.println(ex.getMessage());
             }
         }
-        return state;
     }
     
     public int getDatos(String user, String pass){
@@ -127,6 +121,7 @@ public class UsersDAO {
     public boolean getVacia (){ return cab == null?true:false; }
     
     public Users getCrearNodo (String user, String pass){
+        getUser();
         Users info, p;
         String nom;
         if (user.equals("") || pass.equals("")){
@@ -164,9 +159,7 @@ public class UsersDAO {
                 ps.setString(1, p.user);
                 ps.setString(2, p.pass);
                 ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Se registro con exito, Inicie sesion para continuar");
-                cab = p;
-                
+                JOptionPane.showMessageDialog(null, "Se registro con exito, Inicie sesion para continuar");     
             }
             
         }catch(HeadlessException | SQLException ex){

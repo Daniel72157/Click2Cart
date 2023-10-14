@@ -11,13 +11,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox fx:id="panelFormSignIn" alignment="CENTER" maxWidth="600.0" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.signIn.SignInFormController">
+<VBox fx:id="panelFormSignIn" alignment="TOP_CENTER" maxWidth="600.0" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.signIn.SignInFormController">
    <children>
       <Label text="Iniciar Sesion">
          <font>
             <Font name="System Bold Italic" size="30.0" />
          </font>
+         <VBox.margin>
+            <Insets top="15.0" />
+         </VBox.margin>
       </Label>
       <VBox prefHeight="200.0" prefWidth="100.0">
          <VBox.margin>
@@ -74,7 +76,7 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnClean" mnemonicParsing="false" opacity="0.9" prefWidth="65.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Limpiar" textFill="WHITE">
+                  <Button fx:id="btnClean" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="65.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Limpiar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

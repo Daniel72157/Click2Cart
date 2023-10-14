@@ -55,21 +55,11 @@ public class SignUpFormController implements Initializable {
         if(evt.equals(btnSignUp)){
             String user = txtUserSignUp.getText();
             String pass = txtPasswordSignUp.getText();
-            
-            int state = model.getUser(user);
-            
-            if (state != -1){
-                if (state == 1){
-                    JOptionPane.showMessageDialog(null, "Este nombre de usuario ya se encuentra registrado\n"
-                                                        +"Ingrese uno diferente");
-                }else{
-                    model.setDatos(user, pass);
-                }
-            }
-            
-            
-        }
-        
+            model.setDatos(user, pass);
+        }else if(evt.equals(btnClean)){
+            txtUserSignUp.setText("");
+            txtPasswordSignUp.setText("");
+        }     
     }
     
     /**

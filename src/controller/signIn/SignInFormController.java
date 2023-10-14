@@ -83,6 +83,9 @@ public class SignInFormController implements Initializable {
             }else{
                 JOptionPane.showMessageDialog(null, "Error al iniciar sesion, ingrese los datos del usuario");
             }
+        }else if(evt.equals(btnClean)){
+            txtUserSignIn.setText("");
+            txtPasswordSignIn.setText("");
         }
     }
     
