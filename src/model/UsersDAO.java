@@ -40,7 +40,12 @@ public class UsersDAO {
                 
                 while(rs.next()){
                     info = new Users(rs.getString(1), rs.getString(2));
-                    cab = info;
+                    if (cab == null){
+                        cab = info;
+                    }else{
+                        info.sig = cab;
+                        cab = info;
+                    }
                 }
             }
         }catch(HeadlessException | SQLException ex){
@@ -103,11 +108,10 @@ public class UsersDAO {
     }
     
     public Users getBuscarNom(String user){
-        Users p;
+        Users p = cab;
         if (cab == null)
             return null;
         else{
-            p = cab;
             while (p != null){
                 if ((p.user).equals(user))
                     return p;
