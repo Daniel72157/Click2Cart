@@ -56,6 +56,8 @@ public class SignUpFormController implements Initializable {
             String user = txtUserSignUp.getText();
             String pass = txtPasswordSignUp.getText();
             model.setDatos(user, pass);
+            txtUserSignUp.setText("");
+            txtPasswordSignUp.setText("");
         }else if(evt.equals(btnClean)){
             txtUserSignUp.setText("");
             txtPasswordSignUp.setText("");
