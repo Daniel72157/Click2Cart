@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
@@ -68,6 +69,9 @@
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </CheckBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0" spacing="10.0">
                <children>
@@ -75,11 +79,17 @@
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="btnClean" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="65.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Limpiar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </HBox>
