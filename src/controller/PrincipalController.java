@@ -31,7 +31,7 @@ import javax.swing.JOptionPane;
 public class PrincipalController implements Initializable {
     
     @FXML
-    private Button btnClose;
+    private Button btnClose, btnVender;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -41,6 +41,9 @@ public class PrincipalController implements Initializable {
         if(evt.equals(btnClose)){
             JOptionPane.showMessageDialog(null, "Volviendo a la pagina de Login");
             LoadStage("/main/MainView.fxml", e);
+        }
+        if(evt.equals(btnVender)){
+            LoadStage("/main/productos/IngresarProductos.fxml", e);
         }
     }
 
