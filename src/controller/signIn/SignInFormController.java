@@ -37,6 +37,8 @@ import model.UsersDAO;
  */
 public class SignInFormController implements Initializable {
     
+    public static String Auser;
+    
     private UsersDAO model = new UsersDAO();
     
     @FXML
@@ -74,6 +76,7 @@ public class SignInFormController implements Initializable {
                 
                 if(state != -1){
                     if(state == 1){
+                        Auser = txtUserSignIn.getText();
                         JOptionPane.showMessageDialog(null, "Datos correctos, puede ingresar a la tienda");
                         loadStage("/main/Principal.fxml", event);
                     }else{

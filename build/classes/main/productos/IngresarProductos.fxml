@@ -3,15 +3,16 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <GridPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.productos.IngresarProductosController">
    <columnConstraints>
@@ -94,6 +95,70 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Nombre del producto">
+                     <font>
+                        <Font name="Bold Italic Art" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNom">
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Descripcion del producto">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDesc">
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Precio del producto">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPrecio">
+                     <VBox.margin>
+                        <Insets left="25.0" right="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" spacing="20.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label text="Tipo de producto">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbTipo" prefHeight="25.0" prefWidth="213.0" promptText="Selecciona un tipo de producto" />
+                  <Button mnemonicParsing="false" text="Selecionar foto">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <Button fx:id="btnIngresar" mnemonicParsing="false" onAction="#actionEvent" text="Ingresar producto" />
+               </children>
+            </VBox>
          </children>
       </HBox>
    </children>

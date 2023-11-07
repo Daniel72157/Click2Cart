@@ -75,7 +75,7 @@
             </CheckBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Button fx:id="btnSignUp" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="80.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Registrarse" textFill="WHITE">
+                  <Button fx:id="btnSignUp" defaultButton="true" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="80.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Registrarse" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

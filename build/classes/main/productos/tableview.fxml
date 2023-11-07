@@ -3,10 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -97,67 +97,28 @@
             </Button>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+      <HBox GridPane.rowIndex="1">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" spacing="20.0" HBox.hgrow="ALWAYS">
+            <TableView fx:id="tabla" prefHeight="360.0" prefWidth="640.0">
+              <columns>
+                  <TableColumn fx:id="linkImage" prefWidth="160.0" text="Foto del producto" />
+                <TableColumn fx:id="Nombre" prefWidth="160.0" text="Nombre del producto" />
+                <TableColumn fx:id="Descripcion" minWidth="0.0" prefWidth="160.0" text="Descripcion del producto" />
+                  <TableColumn fx:id="Precio" prefWidth="160.0" text="Precio del producto" />
+              </columns>
+            </TableView>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="160.0" spacing="10.0">
                <children>
-                  <Label text="Nombre del producto">
-                     <font>
-                        <Font name="Bold Italic Art" size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtNom">
+                  <Button mnemonicParsing="false" text="Button">
                      <VBox.margin>
-                        <Insets left="25.0" right="25.0" />
+                        <Insets top="30.0" />
                      </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <Label text="Descripcion del producto">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtDesc">
-                     <VBox.margin>
-                        <Insets left="25.0" right="25.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <Label text="Precio del producto">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="txtPrecio">
-                     <VBox.margin>
-                        <Insets left="25.0" right="25.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" spacing="20.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label text="Tipo de producto">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <ComboBox fx:id="cbTipo" prefHeight="25.0" prefWidth="213.0" promptText="Selecciona un tipo de producto" />
-                  <Button mnemonicParsing="false" text="Selecionar foto">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
                   </Button>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                  <Button fx:id="btnIngresar" mnemonicParsing="false" onAction="#actionEvent" text="Ingresar producto" />
+                  <Button mnemonicParsing="false" text="Button" />
                </children>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </VBox>
          </children>
       </HBox>

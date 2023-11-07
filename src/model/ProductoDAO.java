@@ -24,7 +24,7 @@ public class ProductoDAO {
         this.pila = new Stack<>();
     }
     
-    public void getUser(){
+    public void getProdu(){
         
         Connection connection = null;
         PreparedStatement pst;
@@ -74,7 +74,8 @@ public class ProductoDAO {
                 ps.setString(5, p.Clase);
                 ps.setFloat(6, p.Precio);
                 ps.executeUpdate();
-                JOptionPane.showMessageDialog(null, "Se registro con exito, Inicie sesion para continuar");     
+                pila.push(p);
+                JOptionPane.showMessageDialog(null, "Producto ingresado exitosamente");     
             }
             
         }catch(HeadlessException | SQLException ex){
@@ -89,5 +90,8 @@ public class ProductoDAO {
                 System.err.println(ex.getMessage());
             }
         }
+    }
+    public void eliminarproducto (){
+        
     }
 }
