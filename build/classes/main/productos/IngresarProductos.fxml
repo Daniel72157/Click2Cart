@@ -132,7 +132,7 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPrecio">
+                  <TextField fx:id="txtPrecio" onKeyTyped="#keyEvent">
                      <VBox.margin>
                         <Insets left="25.0" right="25.0" />
                      </VBox.margin>
@@ -150,12 +150,12 @@
                      </font>
                   </Label>
                   <ComboBox fx:id="cbTipo" prefHeight="25.0" prefWidth="213.0" promptText="Selecciona un tipo de producto" />
-                  <Button mnemonicParsing="false" text="Selecionar foto">
+                  <Button fx:id="btnFoto" mnemonicParsing="false" onAction="#actionEvent" text="Selecionar foto">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="btnIngresar" mnemonicParsing="false" onAction="#actionEvent" text="Ingresar producto" />
                </children>
             </VBox>

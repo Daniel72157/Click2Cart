@@ -4,7 +4,6 @@
  */
 package controller.productos;
 
-import controller.PrincipalController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,6 +28,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import javax.swing.JOptionPane;
 import model.ProductoDAO;
 
 /**
@@ -38,12 +38,13 @@ import model.ProductoDAO;
 public class tableviewController implements Initializable {
     
     public static model.Producto pila = new model.Producto();
+    public static model.Producto mostrar = new model.Producto();
     
     @FXML
     private TableView<model.Producto> tabla;
     
     @FXML
-    private TableColumn<model.Producto, String> linkImage;
+    private TableColumn<model.Producto, String> User;
     
     @FXML
     private TableColumn<model.Producto, String> Nombre;
@@ -57,7 +58,7 @@ public class tableviewController implements Initializable {
     public static ObservableList<model.Producto> productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegresar;
+    private Button btnRegresar, btnInicio, btnVender, btnClose, btnVerproducto;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -66,11 +67,34 @@ public class tableviewController implements Initializable {
             productos.removeAll(productos);
             LoadStage("/main/Principal.fxml", e);
         }
+        if(evt.equals(btnInicio)){
+            productos.removeAll(productos);
+            LoadStage("/main/Principal.fxml", e);
+        }
+        if(evt.equals(btnVender)){
+            productos.removeAll(productos);
+            LoadStage("/main/productos/IngresarProductos.fxml", e);
+        }
+        if(evt.equals(btnClose)){
+            productos.removeAll(productos);
+            JOptionPane.showMessageDialog(null, "Volviendo a la pagina de Login");
+            LoadStage("/main/MainView.fxml", e);
+        }
+        if(evt.equals(btnVerproducto)){
+            String verprod = tabla.getSelectionModel().getSelectedItem().getNombre();
+            for(model.Producto ver : ProductoDAO.pila ){
+                if(ver.getNombre().equals(verprod)){
+                    mostrar = ver;
+                    LoadStage("/main/productos/visualizador.fxml", e);
+                }
+            }
+            
+        }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        linkImage.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("linkImage"));
+        User.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("User"));
         Nombre.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("Nombre"));
         Descripcion.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("Descripcion"));
         Precio.setCellValueFactory(new PropertyValueFactory<model.Producto, Float>("Precio"));

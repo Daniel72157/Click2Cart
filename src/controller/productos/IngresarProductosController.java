@@ -5,8 +5,11 @@
 package controller.productos;
 
 import controller.signIn.SignInFormController;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,9 +28,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -36,8 +44,11 @@ import javafx.stage.WindowEvent;
  */
 public class IngresarProductosController implements Initializable {
     
+    public static String ima;
     model.ProductoDAO pila = new model.ProductoDAO();
     ObservableList<String> items = FXCollections.observableArrayList();
+    
+    List<String> lstFile;
     
     @FXML
     private ComboBox<String> cbTipo;
@@ -46,19 +57,47 @@ public class IngresarProductosController implements Initializable {
     private TextField txtNom, txtPrecio, txtDesc;
     
     @FXML
-    private Button btnIngresar, btnRegresar;
+    private Button btnIngresar, btnRegresar, btnFoto;
+    
+    @FXML
+    private ImageView image;
     
     @FXML
     private void actionEvent(ActionEvent e){
         Object evt = e.getSource();
+        if(evt.equals(btnFoto)){
+            FileChooser fc = new FileChooser();
+            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", lstFile));
+            File f = fc.showOpenDialog(null);
+            
+            if(f != null){
+                File imagen = new File(f.getAbsolutePath());
+                ima = imagen.toURI().toString();
+                Image show = new Image(ima);
+                image.setImage(show);
+            }
+        }
         if(evt.equals(btnIngresar)){
-            String clase = cbTipo.getSelectionModel().getSelectedItem().toString();
+            String clase = cbTipo.getSelectionModel().getSelectedItem();
             float precio = Float.parseFloat(txtPrecio.getText());
-            pila.setPush("Nulo", txtNom.getText(), txtDesc.getText(), SignInFormController.Auser, clase, precio);
-            LoadStage("/main/Principal.fxml", e);
+            if(ima != null){
+                pila.setPush(ima, txtNom.getText(), txtDesc.getText(), SignInFormController.Auser, clase, precio);
+                LoadStage("/main/Principal.fxml", e);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ingrese una imagen para el producto!");
+            }
         }
         if(evt.equals(btnRegresar)){
             LoadStage("/main/Principal.fxml", e);
+        }
+    }
+    @FXML
+    private void keyEvent(KeyEvent e){
+        Object evt = e.getSource();
+        if(evt.equals(txtPrecio)){
+            if (!Character.isDigit(e.getCharacter().charAt(0))){
+                e.consume();
+            }
         }
     }
     
@@ -69,6 +108,8 @@ public class IngresarProductosController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         items.addAll("Ropa", "Deportes", "Electrodomesticos", "Juguetes", "Tecnologia", "Vehiculos");
         cbTipo.setItems(items);
+        lstFile = new ArrayList<>();
+        lstFile.add("*.jpg");
         // TODO
     }    
     
