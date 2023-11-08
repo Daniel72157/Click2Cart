@@ -99,7 +99,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="250.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Ropa">
+                  <Button fx:id="btnRopa" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Ropa">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
@@ -110,7 +110,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Juguetes" VBox.vgrow="ALWAYS">
+                  <Button fx:id="btnJuguetes" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Juguetes" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
@@ -127,7 +127,7 @@
                </HBox.margin></VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="250.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Deportes">
+                  <Button fx:id="btnDeportes" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Deportes">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -135,7 +135,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Tecnologia">
+                  <Button fx:id="btnTec" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Tecnologia">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -149,7 +149,7 @@
                   <Insets right="25.0" />
                </HBox.margin>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Electrodomesticos">
+                  <Button fx:id="btnElectro" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Electrodomesticos">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -157,7 +157,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Vehiculos">
+                  <Button fx:id="btnVehiculos" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Vehiculos">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

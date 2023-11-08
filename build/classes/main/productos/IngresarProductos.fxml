@@ -84,12 +84,12 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <Button fx:id="btnClose" mnemonicParsing="false" opacity="0.9" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Cerrar Sesion" textFill="WHITE">
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Regresar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
                <HBox.margin>
-                  <Insets right="30.0" />
+                  <Insets right="30.0" top="5.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />

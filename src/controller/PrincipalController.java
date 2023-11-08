@@ -30,8 +30,10 @@ import javax.swing.JOptionPane;
  */
 public class PrincipalController implements Initializable {
     
+    model.ProductoDAO pila = new model.ProductoDAO();
+    
     @FXML
-    private Button btnClose, btnVender;
+    private Button btnClose, btnVender, btnVehiculos, btnJuguetes, btnRopa, btnDeportes, btnElectro, btnTec;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -45,6 +47,61 @@ public class PrincipalController implements Initializable {
         if(evt.equals(btnVender)){
             LoadStage("/main/productos/IngresarProductos.fxml", e);
         }
+        if(evt.equals(btnRopa)){
+            pila.getProdu();
+            for(model.Producto ropa : model.ProductoDAO.pila){
+                if(ropa.getClase().equals("Ropa")){
+                    controller.productos.tableviewController.productos.add(ropa);
+                }
+            }
+            LoadStage("/main/productos/tableview.fxml", e);
+        }
+        if(evt.equals(btnDeportes)){
+            pila.getProdu();
+            for(model.Producto deportes : model.ProductoDAO.pila){
+                if(deportes.getClase().equals("Deportes")){
+                    controller.productos.tableviewController.productos.add(deportes);
+                }
+            }
+            LoadStage("/main/productos/tableview.fxml", e);
+        }
+        if(evt.equals(btnElectro)){
+            pila.getProdu();
+            for(model.Producto electrodomesticos : model.ProductoDAO.pila){
+                if(electrodomesticos.getClase().equals("Electrodomesticos")){
+                    controller.productos.tableviewController.productos.add(electrodomesticos);
+                }
+            }
+            LoadStage("/main/productos/tableview.fxml", e);
+        }
+        if(evt.equals(btnJuguetes)){
+            pila.getProdu();
+            for(model.Producto juguetes : model.ProductoDAO.pila){
+                if(juguetes.getClase().equals("Juguetes")){
+                    controller.productos.tableviewController.productos.add(juguetes);
+                }
+            }
+            LoadStage("/main/productos/tableview.fxml", e);
+        }
+        if(evt.equals(btnTec)){
+            pila.getProdu();
+            for(model.Producto tecnologia : model.ProductoDAO.pila){
+                if(tecnologia.getClase().equals("Tecnologia")){
+                    controller.productos.tableviewController.productos.add(tecnologia);
+                }
+            }
+            LoadStage("/main/productos/tableview.fxml", e);
+        }
+        if(evt.equals(btnVehiculos)){
+            pila.getProdu();
+            for(model.Producto vehiculos : model.ProductoDAO.pila){
+                if(vehiculos.getClase().equals("Vehiculos")){
+                    controller.productos.tableviewController.productos.add(vehiculos);
+                }
+            }
+            LoadStage("/main/productos/tableview.fxml", e);
+        }
+        
     }
 
     @Override

@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  * @author danie
  */
 public class ProductoDAO {
-    private Stack<Producto> pila;
+    public static Stack<Producto> pila;
     
     public ProductoDAO(){
         this.pila = new Stack<>();

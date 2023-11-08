@@ -30,6 +30,14 @@ public class Producto {
         this.Precio = Precio;
     }
 
+    public String getClase() {
+        return Clase;
+    }
+
+    public void setClase(String Clase) {
+        this.Clase = Clase;
+    }
+
     public String getLinkImage() {
         return linkImage;
     }

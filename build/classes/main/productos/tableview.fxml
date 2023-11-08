@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.productos.IngresarProductosController">
+<GridPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.productos.tableviewController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -115,6 +115,14 @@
                      </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#actionEvent" prefWidth="70.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Regresar" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="230.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
                </children>
                <HBox.margin>
                   <Insets />
