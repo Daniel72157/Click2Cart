@@ -4,6 +4,8 @@
  */
 package controller;
 
+import controller.productos.tableviewController;
+import static controller.productos.tableviewController.productos;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,16 +26,18 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
+import model.carritoDAO;
 /**
  *
  * @author danie
  */
 public class PrincipalController implements Initializable {
     
+    public carritoDAO lista = new carritoDAO();
     model.ProductoDAO pila = new model.ProductoDAO();
     
     @FXML
-    private Button btnClose, btnVender, btnVehiculos, btnJuguetes, btnRopa, btnDeportes, btnElectro, btnTec;
+    private Button btnClose, btnVender, btnVehiculos, btnJuguetes, btnRopa, btnDeportes, btnElectro, btnTec, btnHistorial, btnPcarrito;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -48,6 +52,7 @@ public class PrincipalController implements Initializable {
             LoadStage("/main/productos/IngresarProductos.fxml", e);
         }
         if(evt.equals(btnRopa)){
+            tableviewController.productos.removeAll(productos);
             pila.getProdu();
             for(model.Producto ropa : model.ProductoDAO.pila){
                 if(ropa.getClase().equals("Ropa")){
@@ -57,6 +62,7 @@ public class PrincipalController implements Initializable {
             LoadStage("/main/productos/tableview.fxml", e);
         }
         if(evt.equals(btnDeportes)){
+            tableviewController.productos.removeAll(productos);
             pila.getProdu();
             for(model.Producto deportes : model.ProductoDAO.pila){
                 if(deportes.getClase().equals("Deportes")){
@@ -66,6 +72,7 @@ public class PrincipalController implements Initializable {
             LoadStage("/main/productos/tableview.fxml", e);
         }
         if(evt.equals(btnElectro)){
+            tableviewController.productos.removeAll(productos);
             pila.getProdu();
             for(model.Producto electrodomesticos : model.ProductoDAO.pila){
                 if(electrodomesticos.getClase().equals("Electrodomesticos")){
@@ -75,6 +82,7 @@ public class PrincipalController implements Initializable {
             LoadStage("/main/productos/tableview.fxml", e);
         }
         if(evt.equals(btnJuguetes)){
+            tableviewController.productos.removeAll(productos);
             pila.getProdu();
             for(model.Producto juguetes : model.ProductoDAO.pila){
                 if(juguetes.getClase().equals("Juguetes")){
@@ -84,6 +92,7 @@ public class PrincipalController implements Initializable {
             LoadStage("/main/productos/tableview.fxml", e);
         }
         if(evt.equals(btnTec)){
+            tableviewController.productos.removeAll(productos);
             pila.getProdu();
             for(model.Producto tecnologia : model.ProductoDAO.pila){
                 if(tecnologia.getClase().equals("Tecnologia")){
@@ -93,6 +102,7 @@ public class PrincipalController implements Initializable {
             LoadStage("/main/productos/tableview.fxml", e);
         }
         if(evt.equals(btnVehiculos)){
+            tableviewController.productos.removeAll(productos);
             pila.getProdu();
             for(model.Producto vehiculos : model.ProductoDAO.pila){
                 if(vehiculos.getClase().equals("Vehiculos")){
@@ -100,6 +110,13 @@ public class PrincipalController implements Initializable {
                 }
             }
             LoadStage("/main/productos/tableview.fxml", e);
+        }
+        if(evt.equals(btnHistorial)){
+            LoadStage("/main/productos/historial.fxml", e);
+        }
+        if(evt.equals(btnPcarrito)){
+            lista.getCarrito();
+            LoadStage("/main/productos/carrito.fxml", e);
         }
         
     }

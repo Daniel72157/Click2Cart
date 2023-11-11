@@ -27,6 +27,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -36,6 +37,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
+import model.carritoDAO;
 
 /**
  * FXML Controller class
@@ -45,6 +47,7 @@ import javax.swing.JOptionPane;
 public class IngresarProductosController implements Initializable {
     
     public static String ima;
+    public carritoDAO lista = new carritoDAO();
     model.ProductoDAO pila = new model.ProductoDAO();
     ObservableList<String> items = FXCollections.observableArrayList();
     
@@ -54,10 +57,13 @@ public class IngresarProductosController implements Initializable {
     private ComboBox<String> cbTipo;
     
     @FXML
-    private TextField txtNom, txtPrecio, txtDesc;
+    private TextField txtNom, txtPrecio;
     
     @FXML
-    private Button btnIngresar, btnRegresar, btnFoto;
+    private TextArea txtDesc;
+    
+    @FXML
+    private Button btnIngresar, btnRegresar, btnFoto, btnPcarrito, btnInicio;
     
     @FXML
     private ImageView image;
@@ -79,7 +85,7 @@ public class IngresarProductosController implements Initializable {
         }
         if(evt.equals(btnIngresar)){
             String clase = cbTipo.getSelectionModel().getSelectedItem();
-            float precio = Float.parseFloat(txtPrecio.getText());
+            String precio = txtPrecio.getText();
             if(ima != null){
                 pila.setPush(ima, txtNom.getText(), txtDesc.getText(), SignInFormController.Auser, clase, precio);
                 LoadStage("/main/Principal.fxml", e);
@@ -88,6 +94,13 @@ public class IngresarProductosController implements Initializable {
             }
         }
         if(evt.equals(btnRegresar)){
+            LoadStage("/main/Principal.fxml", e);
+        }
+        if(evt.equals(btnPcarrito)){
+            lista.getCarrito();
+            LoadStage("/main/productos/carrito.fxml", e);
+        }
+        if(evt.equals(btnInicio)){
             LoadStage("/main/Principal.fxml", e);
         }
     }

@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <GridPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.productos.VisualizadorController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -61,7 +60,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button fx:id="btnCarrito" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Carrito" textFill="WHITE">
+                        <Button fx:id="btnPcarrito" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-color: transparent;" text="Carrito" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>
@@ -84,7 +83,7 @@
                   <Insets />
                </HBox.margin>
             </VBox>
-            <Button fx:id="btnClose" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Cerrar Sesion" textFill="WHITE">
+            <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Regresar" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="11.0" />
                </font>
@@ -138,15 +137,21 @@
                   </Label>
                   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                      <children>
-                        <Button mnemonicParsing="false" opacity="0.9" prefWidth="65.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90;" text="Comprar" textFill="WHITE">
+                        <Button fx:id="btnComprar" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="65.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90;" text="Comprar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" opacity="0.9" prefWidth="110.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Agregar al carrito" textFill="WHITE">
+                        <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="110.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Agregar al carrito" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                      <padding>

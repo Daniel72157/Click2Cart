@@ -51,7 +51,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Historial" textFill="WHITE">
+                        <Button fx:id="btnHistorial" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-color: transparent;" text="Historial" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>
@@ -59,7 +59,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Carrito" textFill="WHITE">
+                        <Button fx:id="btnPcarrito" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-color: transparent;" text="Carrito" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>

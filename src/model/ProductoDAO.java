@@ -40,7 +40,7 @@ public class ProductoDAO {
                 rs = datos.executeQuery("SELECT * FROM productos");
                 
                 while(rs.next()){
-                    info = new Producto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getFloat(6));
+                    info = new Producto(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
                     pila.push(info);
                 }
             }
@@ -57,7 +57,7 @@ public class ProductoDAO {
             }
         }
     }
-    public void setPush(String linkImage, String Nombre, String Descripcion, String User, String Clase, float Precio){
+    public void setPush(String linkImage, String Nombre, String Descripcion, String User, String Clase, String Precio){
         Producto p = new Producto(linkImage, Nombre, Descripcion, User, Clase, Precio);
         Connection connection = null;
         PreparedStatement ps;
@@ -72,7 +72,7 @@ public class ProductoDAO {
                 ps.setString(3, p.Descripcion);
                 ps.setString(4, p.User);
                 ps.setString(5, p.Clase);
-                ps.setFloat(6, p.Precio);
+                ps.setString(6, p.Precio);
                 ps.executeUpdate();
                 pila.push(p);
                 JOptionPane.showMessageDialog(null, "Producto ingresado exitosamente");     

@@ -8,11 +8,11 @@ package model;
  *
  * @author danie
  */
-public class Producto {
+public class carrito {
+    String linkImage, Nombre, Descripcion, User, Clase,Precio, comprador;
+    carrito sig;
     
-    String linkImage, Nombre, Descripcion, User, Clase,Precio;
-    
-    public Producto(){
+    public carrito(){
         linkImage = "";
         Nombre = "";
         Descripcion = "";
@@ -20,13 +20,22 @@ public class Producto {
         Clase = "";
         Precio = "";
     }
-    public Producto(String linkImage, String Nombre, String Descripcion, String User, String Clase, String Precio){
+    public carrito(String linkImage, String Nombre, String Descripcion, String User, String Clase, String Precio, String comprador){
         this.linkImage = linkImage;
         this.Nombre = Nombre;
         this.Descripcion = Descripcion;
         this.User = User;
         this.Clase = Clase;
         this.Precio = Precio;
+        this.comprador = comprador;
+    }
+
+    public String getComprador() {
+        return comprador;
+    }
+
+    public void setComprador(String comprador) {
+        this.comprador = comprador;
     }
 
     public String getClase() {
@@ -76,5 +85,4 @@ public class Producto {
     public void setPrecio(String Precio) {
         this.Precio = Precio;
     }
-    
 }

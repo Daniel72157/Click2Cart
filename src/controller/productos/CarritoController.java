@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package controller.productos;
 
@@ -28,77 +28,55 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
-import javax.swing.JOptionPane;
-import model.ProductoDAO;
-import model.carritoDAO;
 
 /**
+ * FXML Controller class
  *
  * @author danie
  */
-public class tableviewController implements Initializable {
-    
-    public carritoDAO lista = new carritoDAO();
-    public static model.Producto pila = new model.Producto();
-    public static model.Producto mostrar = new model.Producto();
+public class CarritoController implements Initializable {
     
     @FXML
-    private TableView<model.Producto> tabla;
+    private TableView<model.carrito> tabla;
     
     @FXML
-    private TableColumn<model.Producto, String> User;
+    private TableColumn<model.carrito, String> User;
     
     @FXML
-    private TableColumn<model.Producto, String> Nombre;
+    private TableColumn<model.carrito, String> Nombre;
     
     @FXML
-    private TableColumn<model.Producto, String> Descripcion;
+    private TableColumn<model.carrito, String> Descripcion;
     
     @FXML
-    private TableColumn<model.Producto, String> Precio;
+    private TableColumn<model.carrito, String> Precio;
     
-    public static ObservableList<model.Producto> productos = FXCollections.observableArrayList();
+    public static ObservableList<model.carrito> productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegresar, btnInicio, btnVender, btnClose, btnVerproducto, btnPcarrito;
+    private Button btnRegresar, btnVender, btnInicio, btnHistorial;
     
     @FXML
     private void actionEvent(ActionEvent e){
         Object evt = e.getSource();
         if(evt.equals(btnRegresar)){
-            LoadStage("/main/Principal.fxml", e);
-        }
-        if(evt.equals(btnInicio)){
+            productos.removeAll(productos);
             LoadStage("/main/Principal.fxml", e);
         }
         if(evt.equals(btnVender)){
             LoadStage("/main/productos/IngresarProductos.fxml", e);
         }
-        if(evt.equals(btnClose)){
-            JOptionPane.showMessageDialog(null, "Volviendo a la pagina de Login");
-            LoadStage("/main/MainView.fxml", e);
-        }
-        if(evt.equals(btnVerproducto)){
-            String verprod = tabla.getSelectionModel().getSelectedItem().getNombre();
-            for(model.Producto ver : ProductoDAO.pila ){
-                if(ver.getNombre().equals(verprod)){
-                    mostrar = ver;
-                    LoadStage("/main/productos/visualizador.fxml", e);
-                }
-            }    
-        }
-        if(evt.equals(btnPcarrito)){
-            lista.getCarrito();
-            LoadStage("/main/productos/carrito.fxml", e);
-        }
     }
     
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        User.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("User"));
-        Nombre.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("Nombre"));
-        Descripcion.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("Descripcion"));
-        Precio.setCellValueFactory(new PropertyValueFactory<model.Producto, String>("Precio"));
+        User.setCellValueFactory(new PropertyValueFactory<model.carrito, String>("User"));
+        Nombre.setCellValueFactory(new PropertyValueFactory<model.carrito, String>("Nombre"));
+        Descripcion.setCellValueFactory(new PropertyValueFactory<model.carrito, String>("Descripcion"));
+        Precio.setCellValueFactory(new PropertyValueFactory<model.carrito, String>("Precio"));
         tabla.setItems(productos);
         // TODO
     }    
@@ -126,8 +104,9 @@ public class tableviewController implements Initializable {
                 }        
             });
         }catch ( IOException ex){
-            Logger.getLogger(tableviewController.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CarritoController.class.getName()).log(Level.SEVERE,null, ex);
         }
         
     }
+    
 }
