@@ -53,7 +53,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Historial" textFill="WHITE">
+                        <Button fx:id="btnHistorial" mnemonicParsing="false" onAction="#actionEvent" style="-fx-background-color: transparent;" text="Historial" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="11.0" />
                            </font>
@@ -109,7 +109,7 @@
             </TableView>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="160.0" spacing="10.0">
                <children>
-                  <Button fx:id="btnVerproducto" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="90.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Ver producto" textFill="WHITE">
+                  <Button fx:id="btnVerproducto" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="110.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Ver producto" textFill="WHITE">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
@@ -120,10 +120,24 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" text="Button" />
+                  <Button fx:id="btnCarrito" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="110.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Agregar al carrito" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btnComprar" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="110.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Comprar" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="11.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <Button fx:id="btnRegresar" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" prefWidth="70.0" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Regresar" textFill="WHITE">
                      <VBox.margin>
-                        <Insets top="230.0" />
+                        <Insets top="190.0" />
                      </VBox.margin>
                      <font>
                         <Font name="System Bold" size="12.0" />

@@ -10,7 +10,7 @@ package model;
  */
 public class carrito {
     String linkImage, Nombre, Descripcion, User, Clase,Precio, comprador;
-    carrito sig;
+    public carrito sig;
     
     public carrito(){
         linkImage = "";

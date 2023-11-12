@@ -155,12 +155,18 @@
                      <font>
                         <Font name="System Bold" size="11.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                   <Button fx:id="btnIngresar" mnemonicParsing="false" onAction="#actionEvent" opacity="0.9" style="-fx-background-color: #2B398F; -fx-background-radius: 90; -fx-border-radius: 90;" text="Ingresar producto" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="11.0" />
-                     </font></Button>
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </VBox>
          </children>

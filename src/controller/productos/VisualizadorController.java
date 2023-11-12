@@ -47,7 +47,7 @@ public class VisualizadorController implements Initializable {
     private ImageView image;
     
     @FXML
-    private Button btnRegresar, btnComprar, btnCarrito, btnPcarrito;
+    private Button btnRegresar, btnComprar, btnCarrito, btnPcarrito, btnInicio;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -66,6 +66,9 @@ public class VisualizadorController implements Initializable {
         if(evt.equals(btnPcarrito)){
             lista.getCarrito();
             LoadStage("/main/productos/carrito.fxml", e);
+        }
+        if(evt.equals(btnInicio)){
+            LoadStage("/main/Principal.fxml", e);
         }
     }
     /**

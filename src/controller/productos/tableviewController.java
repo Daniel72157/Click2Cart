@@ -4,6 +4,8 @@
  */
 package controller.productos;
 
+import controller.signIn.SignInFormController;
+import static controller.signIn.SignInFormController.Auser;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,7 +62,7 @@ public class tableviewController implements Initializable {
     public static ObservableList<model.Producto> productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegresar, btnInicio, btnVender, btnClose, btnVerproducto, btnPcarrito;
+    private Button btnRegresar, btnInicio, btnVender, btnClose, btnVerproducto, btnPcarrito, btnCarrito;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -86,6 +88,20 @@ public class tableviewController implements Initializable {
                     LoadStage("/main/productos/visualizador.fxml", e);
                 }
             }    
+        }
+        if(evt.equals(btnCarrito)){
+            String verprod = tabla.getSelectionModel().getSelectedItem().getNombre();
+            for(model.Producto ver : ProductoDAO.pila ){
+                if(ver.getNombre().equals(verprod)){
+                    mostrar = ver;
+                }
+            }    
+            if(!mostrar.getUser().equals(Auser)){
+                lista.getCrearnodo(mostrar.getLinkImage(), mostrar.getNombre(), mostrar.getDescripcion(), mostrar.getUser()
+                    , mostrar.getClase(), mostrar.getPrecio(), SignInFormController.Auser);
+            }else{
+                JOptionPane.showMessageDialog(null, "No puedes comprar un producto que publicaste!");
+            }
         }
         if(evt.equals(btnPcarrito)){
             lista.getCarrito();

@@ -4,6 +4,7 @@
  */
 package controller.productos;
 
+import static controller.productos.tableviewController.mostrar;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +29,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
+import model.ProductoDAO;
+import model.carrito;
+import model.carritoDAO;
 
 /**
  * FXML Controller class
@@ -54,7 +58,7 @@ public class CarritoController implements Initializable {
     public static ObservableList<model.carrito> productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegresar, btnVender, btnInicio, btnHistorial;
+    private Button btnRegresar, btnVender, btnInicio, btnHistorial, btnVerproducto;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -64,7 +68,26 @@ public class CarritoController implements Initializable {
             LoadStage("/main/Principal.fxml", e);
         }
         if(evt.equals(btnVender)){
+            productos.removeAll(productos);
             LoadStage("/main/productos/IngresarProductos.fxml", e);
+        }
+        if(evt.equals(btnInicio)){
+            productos.removeAll(productos);
+            LoadStage("/main/Principal.fxml", e);
+        }
+        if(evt.equals(btnVerproducto)){
+            String verprod = tabla.getSelectionModel().getSelectedItem().getNombre();
+            carrito ver = carritoDAO.cab;
+            while(ver != null){
+                if(ver.getNombre().equals(verprod)){
+                    mostrar.setNombre(ver.getNombre());
+                    mostrar.setLinkImage(ver.getLinkImage());
+                    mostrar.setPrecio(ver.getPrecio());
+                    mostrar.setDescripcion(ver.getDescripcion());
+                    LoadStage("/main/productos/visualizador.fxml", e);
+                }
+                ver = ver.sig;
+            }
         }
     }
     

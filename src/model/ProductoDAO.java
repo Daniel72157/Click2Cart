@@ -57,13 +57,27 @@ public class ProductoDAO {
             }
         }
     }
+    public int buscarNom (String nom){
+        int existe;
+        for(Producto nombre : pila){
+            if(nom.equals(nombre.Nombre)){
+                JOptionPane.showMessageDialog(null, "Ya existe un producto con este nombre!");
+                existe = -1;
+                return existe;
+            }
+        }
+        existe = 0;
+        return existe;
+    }
     public void setPush(String linkImage, String Nombre, String Descripcion, String User, String Clase, String Precio){
         Producto p = new Producto(linkImage, Nombre, Descripcion, User, Clase, Precio);
+        getProdu();
+        int existe = buscarNom(Nombre);
         Connection connection = null;
         PreparedStatement ps;
         try{
             connection = ConnectionPoolMySQL.getInstance().getConnection();
-            if(connection != null){
+            if(connection != null && existe == 0){
                    
                 String sql = "INSERT INTO productos (linkImage, Nombre, Descripcion, User, Clase, Precio) VALUES (?,?,?,?,?,?)";
                 ps = connection.prepareStatement(sql);
