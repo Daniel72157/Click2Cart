@@ -37,6 +37,7 @@ import javax.swing.JOptionPane;
  */
 public class VisualizadorController implements Initializable {
     
+    private model.historialDAO historial = new model.historialDAO();
     private model.carritoDAO lista = new model.carritoDAO();
     private model.Producto p = tableviewController.mostrar;
     
@@ -47,13 +48,13 @@ public class VisualizadorController implements Initializable {
     private ImageView image;
     
     @FXML
-    private Button btnRegresar, btnComprar, btnCarrito, btnPcarrito, btnInicio;
+    private Button btnRegresar, btnComprar, btnCarrito, btnPcarrito, btnInicio, btnHistorial;
     
     @FXML
     private void actionEvent(ActionEvent e){
         Object evt = e.getSource();
         if(evt.equals(btnRegresar)){
-            LoadStage("/main/productos/tableview.fxml", e);
+            LoadStage("/main/Principal.fxml", e);
         }
         if(evt.equals(btnCarrito)){
             if(!p.getUser().equals(Auser)){
@@ -69,6 +70,14 @@ public class VisualizadorController implements Initializable {
         }
         if(evt.equals(btnInicio)){
             LoadStage("/main/Principal.fxml", e);
+        }
+        if(evt.equals(btnComprar)){
+            historial.getCrearnodo(p.getLinkImage(), p.getNombre(), p.getDescripcion()
+                    , p.getUser(), p.getClase(), p.getPrecio(), Auser);
+        }
+        if(evt.equals(btnHistorial)){
+            historial.getHistorial();
+            LoadStage("/main/productos/historial.fxml", e);
         }
     }
     /**

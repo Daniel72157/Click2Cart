@@ -78,6 +78,7 @@ public class CarritoController implements Initializable {
         if(evt.equals(btnVerproducto)){
             String verprod = tabla.getSelectionModel().getSelectedItem().getNombre();
             carrito ver = carritoDAO.cab;
+            productos.removeAll(productos);
             while(ver != null){
                 if(ver.getNombre().equals(verprod)){
                     mostrar.setNombre(ver.getNombre());
