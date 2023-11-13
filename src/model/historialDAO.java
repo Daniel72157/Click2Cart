@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 public class historialDAO {
     historial inicio;
     
+    private model.carritoDAO cab = new model.carritoDAO();
+    private model.ProductoDAO pila = new model.ProductoDAO();
     public historialDAO(){ inicio = null; }
     
     public void getCrearnodo(String linkImage, String Nombre, String Descripcion, String User
@@ -52,7 +54,9 @@ public class historialDAO {
                     inicio.ant.sig=p;
                     inicio.ant=p;
                 }
-                JOptionPane.showMessageDialog(null, "Producto comprado con exito!");     
+                JOptionPane.showMessageDialog(null, "Producto comprado con exito!");   
+                pila.eliminarproducto(p.Nombre);
+                cab.eliminarcarrito(p.Nombre);
             }
             
         }catch(HeadlessException | SQLException ex){

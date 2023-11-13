@@ -5,6 +5,7 @@
 package controller.productos;
 
 import static controller.productos.tableviewController.mostrar;
+import static controller.signIn.SignInFormController.Auser;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -80,7 +81,7 @@ public class CarritoController implements Initializable {
             carrito ver = carritoDAO.cab;
             productos.removeAll(productos);
             while(ver != null){
-                if(ver.getNombre().equals(verprod)){
+                if(ver.getNombre().equals(verprod) && ver.getComprador().equals(Auser)){
                     mostrar.setNombre(ver.getNombre());
                     mostrar.setLinkImage(ver.getLinkImage());
                     mostrar.setPrecio(ver.getPrecio());

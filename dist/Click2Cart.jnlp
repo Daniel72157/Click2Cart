@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Click2Cart.jar" size="1732893" download="eager" />
+    <jar href="Click2Cart.jar" size="1733770" download="eager" />
     <jar href="lib\commons-dbcp2-2.6.0.jar" size="205318" download="eager" />
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
     <jar href="lib\commons-pool2-2.6.2.jar" size="129174" download="eager" />

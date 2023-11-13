@@ -105,7 +105,33 @@ public class ProductoDAO {
             }
         }
     }
-    public void eliminarproducto (){
-        
+    public void eliminarproducto (String nom){
+        getProdu();
+        Connection connection = null;
+        PreparedStatement ps;
+        try{
+            connection = ConnectionPoolMySQL.getInstance().getConnection();
+            if(connection != null){
+                for(Producto eliminar : pila){
+                    if(eliminar.Nombre.equals(nom)){                
+                        ps = connection.prepareStatement("DELETE FROM productos WHERE Nombre = '"+ eliminar.Nombre + "';");
+                        ps.executeUpdate();
+                        pila.remove(eliminar);
+                    }
+                }   
+            }
+            
+        }catch(HeadlessException | SQLException ex){
+            JOptionPane.showMessageDialog(null, "Hubo un error de ejecucion, posibles errores:\n"
+                                                + ex.getMessage());
+        }finally{
+            try{
+                if(connection != null){
+                    ConnectionPoolMySQL.getInstance().closeConnection(connection);
+                }
+            }catch(SQLException ex){
+                System.err.println(ex.getMessage());
+            }
+        }
     }
 }

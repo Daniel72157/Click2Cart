@@ -165,5 +165,36 @@ public class carritoDAO {
                 System.err.println(ex.getMessage());
             }
         }
-    }       
+    }  
+    public void eliminarcarrito (String nom){
+        getCarrito();
+        carrito eliminar = cab;
+        Connection connection = null;
+        PreparedStatement ps;
+        try{
+            connection = ConnectionPoolMySQL.getInstance().getConnection();
+            if(connection != null){
+                while(eliminar != null){
+                    if(eliminar.Nombre.equals(nom)){                
+                        ps = connection.prepareStatement("DELETE FROM productos WHERE Nombre = '"+ eliminar.Nombre + "';");
+                        ps.executeUpdate();
+                        
+                    }
+                    eliminar = eliminar.sig;
+                }   
+            }
+            
+        }catch(HeadlessException | SQLException ex){
+            JOptionPane.showMessageDialog(null, "Hubo un error de ejecucion, posibles errores:\n"
+                                                + ex.getMessage());
+        }finally{
+            try{
+                if(connection != null){
+                    ConnectionPoolMySQL.getInstance().closeConnection(connection);
+                }
+            }catch(SQLException ex){
+                System.err.println(ex.getMessage());
+            }
+        }
+    }
 }
