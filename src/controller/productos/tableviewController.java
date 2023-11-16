@@ -42,6 +42,7 @@ public class tableviewController implements Initializable {
     
     model.historialDAO historial = new model.historialDAO();
     
+    public ProductoDAO produ = new ProductoDAO();
     public carritoDAO lista = new carritoDAO();
     public static model.Producto pila = new model.Producto();
     public static model.Producto mostrar = new model.Producto();
@@ -83,6 +84,7 @@ public class tableviewController implements Initializable {
             LoadStage("/main/MainView.fxml", e);
         }
         if(evt.equals(btnVerproducto)){
+            produ.getProdu();
             String verprod = tabla.getSelectionModel().getSelectedItem().getNombre();
             for(model.Producto ver : ProductoDAO.pila ){
                 if(ver.getNombre().equals(verprod)){

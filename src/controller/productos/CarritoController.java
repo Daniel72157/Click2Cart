@@ -41,6 +41,7 @@ import model.carritoDAO;
  */
 public class CarritoController implements Initializable {
     
+    model.carritoDAO carritoc = new model.carritoDAO();
     model.historialDAO historial = new model.historialDAO();
     
     @FXML
@@ -79,9 +80,9 @@ public class CarritoController implements Initializable {
             LoadStage("/main/Principal.fxml", e);
         }
         if(evt.equals(btnVerproducto)){
+            carritoc.crearLista();
             String verprod = tabla.getSelectionModel().getSelectedItem().getNombre();
             carrito ver = carritoDAO.cab;
-            productos.removeAll(productos);
             while(ver != null){
                 if(ver.getNombre().equals(verprod) && ver.getComprador().equals(Auser)){
                     mostrar.setNombre(ver.getNombre());
@@ -89,6 +90,7 @@ public class CarritoController implements Initializable {
                     mostrar.setPrecio(ver.getPrecio());
                     mostrar.setDescripcion(ver.getDescripcion());
                     LoadStage("/main/productos/visualizador.fxml", e);
+                    productos.removeAll(productos);
                 }
                 ver = ver.sig;
             }
