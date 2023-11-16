@@ -191,7 +191,6 @@ public class carritoDAO {
                     if(eliminar.Nombre.equals(nom)){                
                         ps = connection.prepareStatement("DELETE FROM carrito WHERE Nombre = '"+ eliminar.Nombre + "';");
                         ps.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Borrado");
                         controller.productos.CarritoController.productos.remove(eliminar);
                         cab = eliminar;
                     }

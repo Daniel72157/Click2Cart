@@ -97,6 +97,7 @@ public class CarritoController implements Initializable {
         }
         if(evt.equals(btnHistorial)){
             historial.getHistorial();
+            productos.removeAll(productos);
             LoadStage("/main/productos/historial.fxml", e);
         }
     }
