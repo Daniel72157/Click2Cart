@@ -40,6 +40,8 @@ import model.carritoDAO;
  */
 public class tableviewController implements Initializable {
     
+    model.historialDAO historial = new model.historialDAO();
+    
     public carritoDAO lista = new carritoDAO();
     public static model.Producto pila = new model.Producto();
     public static model.Producto mostrar = new model.Producto();
@@ -62,7 +64,7 @@ public class tableviewController implements Initializable {
     public static ObservableList<model.Producto> productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegresar, btnInicio, btnVender, btnClose, btnVerproducto, btnPcarrito, btnCarrito;
+    private Button btnRegresar, btnInicio, btnVender, btnClose, btnVerproducto, btnPcarrito, btnCarrito, btnHistorial;
     
     @FXML
     private void actionEvent(ActionEvent e){
@@ -106,6 +108,10 @@ public class tableviewController implements Initializable {
         if(evt.equals(btnPcarrito)){
             lista.getCarrito();
             LoadStage("/main/productos/carrito.fxml", e);
+        }
+        if(evt.equals(btnHistorial)){
+            historial.getHistorial();
+            LoadStage("/main/productos/historial.fxml", e);
         }
     }
     

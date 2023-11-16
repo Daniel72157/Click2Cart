@@ -48,15 +48,19 @@ public class historialDAO {
                 if(inicio==null){
                     inicio=p;
                     inicio.sig=inicio.ant=inicio;
+                    JOptionPane.showMessageDialog(null, "Producto comprado con exito!");   
+                    cab.eliminarcarrito(p.Nombre);
+                    pila.eliminarproducto(p.Nombre);
                 }else{
                     p.ant=inicio.ant;
                     p.sig=inicio;
                     inicio.ant.sig=p;
                     inicio.ant=p;
+                    JOptionPane.showMessageDialog(null, "Producto comprado con exito!"); 
+                    cab.eliminarcarrito(p.Nombre);
+                    pila.eliminarproducto(p.Nombre);
                 }
-                JOptionPane.showMessageDialog(null, "Producto comprado con exito!");   
-                pila.eliminarproducto(p.Nombre);
-                cab.eliminarcarrito(p.Nombre);
+                
             }
             
         }catch(HeadlessException | SQLException ex){

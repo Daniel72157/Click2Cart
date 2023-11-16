@@ -46,6 +46,8 @@ import model.carritoDAO;
  */
 public class IngresarProductosController implements Initializable {
     
+    model.historialDAO historial = new model.historialDAO();
+    
     public static String ima;
     public carritoDAO lista = new carritoDAO();
     model.ProductoDAO pila = new model.ProductoDAO();
@@ -63,7 +65,7 @@ public class IngresarProductosController implements Initializable {
     private TextArea txtDesc;
     
     @FXML
-    private Button btnIngresar, btnRegresar, btnFoto, btnPcarrito, btnInicio;
+    private Button btnIngresar, btnRegresar, btnFoto, btnPcarrito, btnInicio, btnHistorial;
     
     @FXML
     private ImageView image;
@@ -102,6 +104,10 @@ public class IngresarProductosController implements Initializable {
         }
         if(evt.equals(btnInicio)){
             LoadStage("/main/Principal.fxml", e);
+        }
+        if(evt.equals(btnHistorial)){
+            historial.getHistorial();
+            LoadStage("/main/productos/historial.fxml", e);
         }
     }
     @FXML

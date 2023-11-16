@@ -27,6 +27,7 @@ import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
 import model.carritoDAO;
+import model.historialDAO;
 /**
  *
  * @author danie
@@ -42,6 +43,7 @@ public class PrincipalController implements Initializable {
     @FXML
     private void actionEvent(ActionEvent e){
         
+        historialDAO historial = new historialDAO();
         Object evt = e.getSource();
         
         if(evt.equals(btnClose)){
@@ -112,6 +114,7 @@ public class PrincipalController implements Initializable {
             LoadStage("/main/productos/tableview.fxml", e);
         }
         if(evt.equals(btnHistorial)){
+            historial.getHistorial();
             LoadStage("/main/productos/historial.fxml", e);
         }
         if(evt.equals(btnPcarrito)){

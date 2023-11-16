@@ -41,6 +41,8 @@ import model.carritoDAO;
  */
 public class CarritoController implements Initializable {
     
+    model.historialDAO historial = new model.historialDAO();
+    
     @FXML
     private TableView<model.carrito> tabla;
     
@@ -90,6 +92,10 @@ public class CarritoController implements Initializable {
                 }
                 ver = ver.sig;
             }
+        }
+        if(evt.equals(btnHistorial)){
+            historial.getHistorial();
+            LoadStage("/main/productos/historial.fxml", e);
         }
     }
     

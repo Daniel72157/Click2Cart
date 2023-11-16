@@ -74,6 +74,7 @@ public class VisualizadorController implements Initializable {
         if(evt.equals(btnComprar)){
             historial.getCrearnodo(p.getLinkImage(), p.getNombre(), p.getDescripcion()
                     , p.getUser(), p.getClase(), p.getPrecio(), Auser);
+            LoadStage("/main/Principal.fxml", e);
         }
         if(evt.equals(btnHistorial)){
             historial.getHistorial();

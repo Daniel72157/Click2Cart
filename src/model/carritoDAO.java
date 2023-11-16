@@ -166,21 +166,36 @@ public class carritoDAO {
             }
         }
     }  
+    
+    public carrito buscar(String nom){
+        carrito buscar = cab;
+        while(buscar != null){
+            if(buscar.Nombre.equals(nom)){
+                return buscar;
+            }else{
+                buscar = buscar.sig;
+            }
+        }
+        return null;
+    }
+    
     public void eliminarcarrito (String nom){
-        getCarrito();
-        carrito eliminar = cab;
+        crearLista();
+        carrito eliminar = buscar(nom);
         Connection connection = null;
         PreparedStatement ps;
         try{
             connection = ConnectionPoolMySQL.getInstance().getConnection();
             if(connection != null){
-                while(eliminar != null){
+                while(cab != null){
                     if(eliminar.Nombre.equals(nom)){                
-                        ps = connection.prepareStatement("DELETE FROM productos WHERE Nombre = '"+ eliminar.Nombre + "';");
+                        ps = connection.prepareStatement("DELETE FROM carrito WHERE Nombre = '"+ eliminar.Nombre + "';");
                         ps.executeUpdate();
-                        
+                        JOptionPane.showMessageDialog(null, "Borrado");
+                        controller.productos.CarritoController.productos.remove(eliminar);
+                        cab = eliminar;
                     }
-                    eliminar = eliminar.sig;
+                    cab = cab.sig;
                 }   
             }
             

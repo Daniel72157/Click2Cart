@@ -61,6 +61,7 @@ public class HistorialController implements Initializable {
         Object evt = e.getSource();
         if(evt.equals(btnRegresar)){
             LoadStage("/main/Principal.fxml", e);
+            productos.removeAll(productos);
         }
     }
     /**
