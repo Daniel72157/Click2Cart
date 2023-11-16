@@ -113,6 +113,7 @@ public class tableviewController implements Initializable {
             historial.getHistorial();
             LoadStage("/main/productos/historial.fxml", e);
         }
+        
     }
     
     @Override

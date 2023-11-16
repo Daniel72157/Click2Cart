@@ -36,6 +36,9 @@ import javafx.stage.WindowEvent;
  * @author danie
  */
 public class HistorialController implements Initializable {
+    
+    model.carritoDAO lista = new model.carritoDAO();
+    
     @FXML
     private TableView<model.historial> tabla;
     
@@ -54,12 +57,25 @@ public class HistorialController implements Initializable {
     public static ObservableList<model.historial> productos = FXCollections.observableArrayList();
     
     @FXML
-    private Button btnRegresar;
+    private Button btnRegresar, btnInicio, btnCarrito, btnVender;
     
     @FXML
     private void actionEvent(ActionEvent e){
         Object evt = e.getSource();
         if(evt.equals(btnRegresar)){
+            LoadStage("/main/Principal.fxml", e);
+            productos.removeAll(productos);
+        }
+        if(evt.equals(btnCarrito)){
+            lista.getCarrito();
+            LoadStage("/main/productos/carrito.fxml", e);
+            productos.removeAll(productos);
+        }
+        if(evt.equals(btnVender)){
+            LoadStage("/main/productos/IngresarProductos.fxml", e);
+            productos.removeAll(productos);
+        }
+        if(evt.equals(btnInicio)){
             LoadStage("/main/Principal.fxml", e);
             productos.removeAll(productos);
         }

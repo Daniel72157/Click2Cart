@@ -4,7 +4,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -23,25 +24,25 @@
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #5767FF;" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
          <children>
-            <Label text="Click2Cart">
+            <ImageView fitHeight="90.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@../images/CVDF5371.PNG" />
+               </image>
+            </ImageView>
+            <Label prefHeight="45.0" prefWidth="151.0" text="Click2Cart">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
                <HBox.margin>
-                  <Insets left="100.0" />
+                  <Insets />
                </HBox.margin>
             </Label>
             <VBox alignment="CENTER" maxHeight="60.0" prefHeight="60.0" prefWidth="397.0" HBox.hgrow="ALWAYS">
                <children>
-                  <TextField maxWidth="600.0" prefHeight="25.0" prefWidth="350.0" promptText="Buscar productos" style="-fx-background-radius: 90; -fx-border-radius: 90;" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                  </TextField>
-                  <HBox alignment="BOTTOM_CENTER" spacing="10.0" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="380.0" spacing="10.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Inicio" textFill="WHITE">
                            <font>
@@ -87,7 +88,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
                <HBox.margin>
-                  <Insets right="30.0" top="5.0" />
+                  <Insets right="20.0" top="5.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -99,7 +100,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="250.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="btnRopa" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Ropa">
+                  <Button fx:id="btnRopa" contentDisplay="CENTER" graphicTextGap="0.0" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: transparent;" text="Ropa">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
@@ -109,8 +110,15 @@
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/ropa.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="btnJuguetes" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Juguetes" VBox.vgrow="ALWAYS">
+                  <Button fx:id="btnJuguetes" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: transparent;" text="Juguetes" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
@@ -120,6 +128,13 @@
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/juguetes.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
                <HBox.margin>
@@ -127,21 +142,35 @@
                </HBox.margin></VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="250.0" spacing="20.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="btnDeportes" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Deportes">
+                  <Button fx:id="btnDeportes" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: transparent;" text="Deportes">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/deporte.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="btnTec" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Tecnologia">
+                  <Button fx:id="btnTec" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: transparent;" text="Tecnologia">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/tecnologia.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children></VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="250.0" spacing="20.0" HBox.hgrow="ALWAYS">
@@ -149,21 +178,35 @@
                   <Insets right="25.0" />
                </HBox.margin>
                <children>
-                  <Button fx:id="btnElectro" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Electrodomesticos">
+                  <Button fx:id="btnElectro" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: transparent;" text="Electrodomesticos">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/electrodomesticos.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="btnVehiculos" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" text="Vehiculos">
+                  <Button fx:id="btnVehiculos" contentDisplay="CENTER" mnemonicParsing="false" onAction="#actionEvent" prefHeight="150.0" prefWidth="150.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px; -fx-background-color: transparent;" text="Vehiculos">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/vehiculos.jpg" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children></VBox>
          </children>
